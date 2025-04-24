@@ -26,7 +26,7 @@ import (
 )
 
 // Session represents a user session. It is returned by the
-// SessionProvider implementation's GetSession method. Fields here
+// SessionProvider implementation's GetSamlSession method. Fields here
 // are used to set fields in the SAML assertion.
 type Session struct {
 	ID         string
@@ -276,7 +276,7 @@ func (idp *IdentityProvider) ServeIDPInitiated(w http.ResponseWriter, r *http.Re
 
 	session := idp.SessionProvider.GetSession(w, r, req)
 	if session == nil {
-		// If GetSession returns nil, it must have written an HTTP response, per the interface
+		// If GetSamlSession returns nil, it must have written an HTTP response, per the interface
 		// (this is probably because it drew a login form or something)
 		return
 	}
