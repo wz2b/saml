@@ -199,7 +199,5 @@ func PKCS1v15() RSA {
 
 func init() {
 	RegisterDecrypter(OAEP())
-	//RegisterDecrypter(OAEP_2009_256())
-	//RegisterDecrypter(OAEP_2009_512())
 	RegisterDecrypter(PKCS1v15())
 }

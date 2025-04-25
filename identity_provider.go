@@ -279,7 +279,7 @@ func (idp *IdentityProvider) ServeIDPInitiated(w http.ResponseWriter, r *http.Re
 
 	session := idp.SessionProvider.GetSession(w, r, req)
 	if session == nil {
-		// If GetSamlSession returns nil, it must have written an HTTP response, per the interface
+		// If GetSession returns nil, it must have written an HTTP response, per the interface
 		// (this is probably because it drew a login form or something)
 		return
 	}
